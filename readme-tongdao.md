@@ -25,3 +25,8 @@ chmod +x init.sh
 ```
 python -u tools/train.py -c configs/yolov3_darknet.yml
 ```
+测试
+```
+CUDA_VISIBLE_DEVICES=0 python -u tools/eval.py -c configs/yolov3_darknet.yml \
+-o weights=output/yolov3_darknet_no_aware/model_final
+```
