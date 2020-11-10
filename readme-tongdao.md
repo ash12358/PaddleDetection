@@ -23,5 +23,5 @@ chmod +x init.sh
 
 训练
 ```
-python -u tools/train.py -c configs/yolov3_darknet.yml --eval
+python -u tools/train.py -c configs/yolov3_darknet.yml
 ```
