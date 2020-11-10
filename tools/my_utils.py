@@ -384,4 +384,5 @@ if __name__ == '__main__':
     # eval()
     # print(iou([0,0,1,1], [0.5,0.5,1,1]))
 
-    sample_test()
+    # sample_test()
+    pass

@@ -1,4 +1,22 @@
-训练数据放在../data/paddle_tongdao下
+
+
+原始数据标注文件anns.zip，原始图片文件imgs01.zip、imgs02.zip、imgs03.zip、imgs04.zip
+
+将训练数据放在../data/paddle_tongdao下
+
+```
+data/paddle_tongdao
+|--anns
+|--imgs
+```
+解压命令
+```
+unzip -P xxx -d ~/data/paddle_tongdao/anns/ imgs01.zip
+unzip -P xxx -d ~/data/paddle_tongdao/imgs/ imgs01.zip
+unzip -P xxx -d ~/data/paddle_tongdao/imgs/ imgs02.zip
+unzip -P xxx -d ~/data/paddle_tongdao/imgs/ imgs03.zip
+unzip -P xxx -d ~/data/paddle_tongdao/imgs/ imgs04.zip
+```
 
 使用tools/my_utils.py进行数据处理
 1. 清洗原始数据集，只保留机械目标样本。def filter_invalid_data()
