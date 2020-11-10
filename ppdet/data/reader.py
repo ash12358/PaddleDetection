@@ -244,6 +244,7 @@ class Reader(object):
         # sampling
         self._mixup_epoch = mixup_epoch
         self._class_aware_sampling = class_aware_sampling
+        print('\n\n\n\n'+'self._class_aware_sampling:'+self._class_aware_sampling+'\n\n\n')
         # self._class_aware_sampling = True
         self._load_img = False
         self._sample_num = len(self._roidbs)
