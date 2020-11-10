@@ -9,13 +9,11 @@ data/paddle_tongdao
 |--anns
 |--imgs
 ```
-解压命令
+创建临时变量，执行init.sh，将训练数据准备好
 ```
-unzip -P xxx -d ~/data/paddle_tongdao/anns/ imgs01.zip
-unzip -P xxx -d ~/data/paddle_tongdao/imgs/ imgs01.zip
-unzip -P xxx -d ~/data/paddle_tongdao/imgs/ imgs02.zip
-unzip -P xxx -d ~/data/paddle_tongdao/imgs/ imgs03.zip
-unzip -P xxx -d ~/data/paddle_tongdao/imgs/ imgs04.zip
+export UNZIP_PSW=xxx
+chmod +x init.sh
+./init.sh
 ```
 
 使用tools/my_utils.py进行数据处理
