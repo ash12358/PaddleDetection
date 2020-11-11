@@ -21,6 +21,8 @@ chmod +x init.sh
 2. 将xml格式转换成coco格式。def xmltococo()
 2. 统计基本信息，包括类别分类，各类别图片、样本数量。def statistic_class_number(xml_path='../data/paddle_tongdao/anns', flag=None)
 
+版本：paddle1.8.0
+
 训练
 ```
 nohup python -u tools/train.py -c configs/yolov3_darknet.yml &
