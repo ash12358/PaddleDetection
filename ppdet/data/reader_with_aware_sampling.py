@@ -16,6 +16,7 @@ from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
 
+import os
 import copy
 import functools
 import collections
@@ -27,6 +28,7 @@ from ppdet.core.workspace import register, serializable
 
 from .parallel_map import ParallelMap
 from .transform.batch_operators import Gt2YoloTarget
+from tools import my_utils
 
 __all__ = ['Reader', 'create_reader']
 
@@ -242,12 +244,16 @@ class Reader(object):
         # sampling
         self._mixup_epoch = mixup_epoch
         self._class_aware_sampling = class_aware_sampling
-
+        #print('\n\n\n\n'+'self._class_aware_sampling:'+str(self._class_aware_sampling)+'\n\n\n')
+        # 默认是False
+        # 当要使用sampling时，要将其设置为True
+        # self._class_aware_sampling = True
         self._load_img = False
         self._sample_num = len(self._roidbs)
 
         if self._class_aware_sampling:
-            self.img_weights = _calc_img_weights(self._roidbs)
+            # self.img_weights = _calc_img_weights(self._roidbs)
+            self.img_weights = my_utils.tf_idf_weights(self._roidbs)
         self._indexes = None
 
         self._pos = -1
@@ -349,6 +355,14 @@ class Reader(object):
 
             batch.append(sample)
             bs += 1
+        if not os.path.exists('output'):
+            os.mkdir('output')
+        with open('output/yolov3.reader', 'a', encoding='utf-8') as f:
+            f.write('self._class_aware_sampling:{}\n'.format(self._class_aware_sampling))
+            f.write('batch_size:{}\n'.format(bs))
+            for b in batch:
+                f.write('im_file:{}\n'.format(b['im_file']))
+
         return batch
 
     def worker(self, drop_empty=True, batch_samples=None):
@@ -394,6 +408,7 @@ class Reader(object):
 def create_reader(cfg, max_iter=0, global_cfg=None, devices_num=1):
     """
     Return iterable data reader.
+
     Args:
         max_iter (int): number of iterations.
     """
