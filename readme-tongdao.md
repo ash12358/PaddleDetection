@@ -25,7 +25,7 @@ chmod +x init.sh
 
 训练
 ```
-nohup python -u tools/train.py -c configs/yolov3_darknet.yml &
+nohup python -u tools/train.py -c configs/yolov3_darknet.yml -o use_fine_grained_loss=true &
 ```
 恢复训练
 ```
