@@ -23,7 +23,12 @@ chmod +x init.sh
 
 训练
 ```
-python -u tools/train.py -c configs/yolov3_darknet.yml
+nohup python -u tools/train.py -c configs/yolov3_darknet.yml &
+```
+恢复训练
+```
+nohup python -u tools/train.py -c configs/yolov3_darknet.yml \
+-r output/yolov3_darknet/model_final &
 ```
 测试
 ```
