@@ -21,6 +21,8 @@ chmod +x init.sh
 2. 将xml格式转换成coco格式。def xmltococo()
 2. 统计基本信息，包括类别分类，各类别图片、样本数量。def statistic_class_number(xml_path='../data/paddle_tongdao/anns', flag=None)
 
+训练集图片30105张，测试集图片3346张。max_iter=200000，batchsize=8，约每张图使用53次。
+
 版本：paddle1.8.0
 
 训练
@@ -34,8 +36,8 @@ nohup python -u tools/train.py -c configs/yolov3_darknet.yml \
 ```
 测试
 ```
-CUDA_VISIBLE_DEVICES=0 python -u tools/eval.py -c configs/yolov3_darknet.yml \
--o weights=output/yolov3_darknet/model_final
+python -u tools/eval.py -c configs/yolov3_darknet.yml \
+-o weights=output/yolov3_darknet/5000
 ```
 预测
 ```
@@ -43,5 +45,5 @@ python -u tools/infer.py -c configs/yolov3_darknet.yml \
 --infer_dir=../data/paddle_tongdao/val \
 --output_dir=infer_output/ \
 --draw_threshold=0.1 \
--o weights=output/yolov3_darknet/2600
+-o weights=output/yolov3_darknet/5000
 ```
