@@ -28,5 +28,13 @@ python -u tools/train.py -c configs/yolov3_darknet.yml
 测试
 ```
 CUDA_VISIBLE_DEVICES=0 python -u tools/eval.py -c configs/yolov3_darknet.yml \
--o weights=output/yolov3_darknet_no_aware/model_final
+-o weights=output/yolov3_darknet/model_final
+```
+预测
+```
+python -u tools/infer.py -c configs/yolov3_darknet.yml \
+--infer_dir=../data/paddle_tongdao/val \
+--output_dir=infer_output/ \
+--draw_threshold=0.1 \
+-o weights=output/yolov3_darknet/2600
 ```
