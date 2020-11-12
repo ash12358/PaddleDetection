@@ -31,8 +31,8 @@ nohup python -u tools/train.py -c configs/yolov3_darknet.yml -o use_fine_grained
 ```
 恢复训练
 ```
-nohup python -u tools/train.py -c configs/yolov3_darknet.yml \
--r output/yolov3_darknet/model_final &
+nohup python -u tools/train.py -c configs/yolov3_darknet.yml -o use_fine_grained_loss=true \
+-r output/yolov3_darknet/6000 &
 ```
 测试
 ```
@@ -45,5 +45,5 @@ python -u tools/infer.py -c configs/yolov3_darknet.yml \
 --infer_dir=../data/paddle_tongdao/val \
 --output_dir=infer_output/ \
 --draw_threshold=0.1 \
--o weights=output/yolov3_darknet/5000
+-o weights=output/yolov3_darknet/8000
 ```
