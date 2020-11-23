@@ -47,3 +47,10 @@ python -u tools/infer.py -c configs/yolov3_darknet.yml \
 --draw_threshold=0.1 \
 -o weights=output/yolov3_darknet/8000
 ```
+带可视化训练
+```
+python -u tools/train.py -c configs/yolov3_darknet.yml -o use_fine_grained_loss=true \
+--use_vdl=True \
+--vdl_log_dir=vdl_fruit_dir/scalar \
+--eval
+```
