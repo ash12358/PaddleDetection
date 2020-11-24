@@ -1,6 +1,6 @@
 architecture: YOLOv3
 use_gpu: true
-max_iters: 200000 # 500000
+max_iters: 60000 # 500000
 log_smooth_window: 20
 save_dir: output
 snapshot_iter: 2000
@@ -49,8 +49,8 @@ LearningRate:
   - !PiecewiseDecay
     gamma: 0.1
     milestones:
-    - 150000
-    - 180000
+    - 40000
+    - 54000
   - !LinearWarmup
     start_factor: 0.
     steps: 2000 #4000

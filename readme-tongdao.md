@@ -51,6 +51,6 @@ python -u tools/infer.py -c configs/yolov3_darknet.yml \
 ```
 python -u tools/train.py -c configs/yolov3_darknet.yml -o use_fine_grained_loss=true \
 --use_vdl=True \
---vdl_log_dir=vdl_fruit_dir/scalar \
+--vdl_log_dir=vdl_tongdao_dir/scalar \
 --eval
 ```
