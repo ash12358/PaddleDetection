@@ -44,6 +44,35 @@ def statistic_class_number(xml_path='../data/paddle_tongdao/anns', flag=None):
         print('{}\t{}\t{}'.format(class_name, number_of_obj, len(number_of_img)))
 
 
+def select_mini_dataset():
+    xml_path = '../data/paddle_tongdao/anns'
+    img_path = '../data/paddle_tongdao/imgs'
+    xml_names = [xml_name[:-4] for xml_name in os.listdir(xml_path) if xml_name.endswith('.xml')]
+    img_names = [img_name[:-4] for img_name in os.listdir(img_path) if img_name.endswith('.jpg')]
+
+    mini_batch = random.sample(xml_names, 5000)
+
+    xml_dels = []
+    img_dels = []
+
+    for xml_name in xml_names:
+        if xml_name not in mini_batch:
+            xml_dels.append(os.path.join(xml_path, xml_name+'.xml'))
+
+    for img_name in img_names:
+        if img_name not in mini_batch:
+            img_dels.append(os.path.join(img_path, img_name+'.jpg'))
+    xml_dels.sort()
+    img_dels.sort()
+
+    for path in xml_dels:
+        os.remove(path)
+    for path in img_dels:
+        os.remove(path)
+    print('删除xml {} 个'.format(len(xml_dels)))
+    print('删除img {} 个'.format(len(img_dels)))
+
+
 def filter_invalid_data():
     """
     修改xml，去除非机械目标
@@ -374,6 +403,7 @@ if __name__ == '__main__':
     # statistic_class_number('../data/paddle_tongdao/anns')
 
     # filter_invalid_data()
+    # select_mini_dataset()
     # statistic_class_number('../data/paddle_tongdao/anns0')
     #
     # xml to coco
