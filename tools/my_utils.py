@@ -45,7 +45,7 @@ def statistic_class_number(xml_path='../data/paddle_tongdao/anns', flag=None):
 
 
 def select_mini_dataset():
-    xml_path = '../data/paddle_tongdao/anns'
+    xml_path = '../data/paddle_tongdao/anns0'
     img_path = '../data/paddle_tongdao/imgs'
     xml_names = [xml_name[:-4] for xml_name in os.listdir(xml_path) if xml_name.endswith('.xml')]
     img_names = [img_name[:-4] for img_name in os.listdir(img_path) if img_name.endswith('.jpg')]
