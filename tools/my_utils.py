@@ -50,7 +50,9 @@ def select_mini_dataset():
     xml_names = [xml_name[:-4] for xml_name in os.listdir(xml_path) if xml_name.endswith('.xml')]
     img_names = [img_name[:-4] for img_name in os.listdir(img_path) if img_name.endswith('.jpg')]
 
-    mini_batch = random.sample(xml_names, 5000)
+    inter = [xml_name for xml_name in xml_names if xml_name in img_names]
+
+    mini_batch = random.sample(inter, 5000)
 
     print('mini_batch len is ', len(mini_batch))
 
