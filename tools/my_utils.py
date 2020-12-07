@@ -52,6 +52,8 @@ def select_mini_dataset():
 
     mini_batch = random.sample(xml_names, 5000)
 
+    print('mini_batch len is ', len(mini_batch))
+
     xml_dels = []
     img_dels = []
 
