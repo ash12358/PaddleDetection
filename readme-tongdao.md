@@ -50,6 +50,7 @@ python -u tools/infer.py -c configs/yolov3_darknet.yml \
 带可视化训练
 ```
 python -u tools/train.py -c configs/yolov3_darknet.yml -o use_fine_grained_loss=true \
+-r output/yolov3_darknet/30000 \
 --use_vdl=True \
 --vdl_log_dir=vdl_tongdao_dir/scalar \
 --eval
