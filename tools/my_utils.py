@@ -52,7 +52,7 @@ def select_mini_dataset():
 
     inter = [xml_name for xml_name in xml_names if xml_name in img_names]
 
-    mini_batch = random.sample(inter, 5000)
+    mini_batch = random.sample(inter, 2000)
 
     print('mini_batch len is ', len(mini_batch))
 
@@ -203,7 +203,7 @@ def xmltococo():
     xml_dir = path2 + "/anns0"
     save_json_train = path2+'/annotations/train.json'
     save_json_val = path2+'/annotations/val.json'
-    train_ratio = 0.9
+    train_ratio = 0.7
 
     if os.path.exists(path2 + "/annotations"):
         shutil.rmtree(path2 + "/annotations")
